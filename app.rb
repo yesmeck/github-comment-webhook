@@ -14,5 +14,5 @@ post '/' do
     Site Preview: #{params['url']}
   EOF
   comment = client.add_comment(ENV["GITHUB_REPO"], params['id'], body)
-  comment[:id]
+  comment.id.to_s
 end
