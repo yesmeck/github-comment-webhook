@@ -13,5 +13,6 @@ post '/' do
   comment = <<~EOF
     Site Preview: #{params['url']}
   EOF
-  Octokit.add_comment(ENV["GITHUB_REPO"], params['id'], comment)
+  client.add_comment(ENV["GITHUB_REPO"], params['id'], comment)
+  'done'
 end
