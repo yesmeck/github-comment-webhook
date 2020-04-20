@@ -10,9 +10,9 @@ end
 
 
 post '/' do
-  comment = <<~EOF
+  body = <<~EOF
     Site Preview: #{params['url']}
   EOF
-  client.add_comment(ENV["GITHUB_REPO"], params['id'], comment)
-  'done'
+  comment = client.add_comment(ENV["GITHUB_REPO"], params['id'], body)
+  comment[:id]
 end
